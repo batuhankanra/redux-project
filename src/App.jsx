@@ -1,28 +1,21 @@
-import React from 'react'
-
-import {  useDispatch, useSelector } from 'react-redux'
 import { _decrement,_increment } from './stores/calc'
+import CalcBtn from './components/calcBtn'
+import Todo from './components/todo'
+import User from './components/users'
+import Modal from './components/modal'
+import { useSelector } from 'react-redux'
 
 export default function App() {
-  const dispatch = useDispatch()
-  const count =useSelector((state)=>state.calc.value)
 
-
-  const incrementBtn =()=>{
-    dispatch(_increment())
-  }
-  const decrementBtn=()=>{
-    dispatch(_decrement())
-  }
+  const {open} = useSelector(state=>state.modal)
+  
   return (
     <div>
-      <button onClick={decrementBtn}>eksilt</button>
+      {open && <Modal />}
+      <User />
+      <CalcBtn />
 
-
-      <span>{count} </span>
-
-
-      <button onClick={incrementBtn}>arttır</button>
+      <Todo />
 
     </div>
   )
