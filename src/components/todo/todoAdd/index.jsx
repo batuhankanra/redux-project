@@ -23,11 +23,14 @@ export default function TodoAdd() {
     }
 
   return (
+   <div className='flex flex-col items-center justify-center gap-y-2'>
+        <h1 className="font-bold text-xl  text-white bg-[#1e223b]  rounded-md w-[200px] text-center  " >Todo App</h1>
    
-        <form onSubmit={submitHandle} className='flex items-center justify-center pt-5 gap-x-2  '>
+        <form onSubmit={submitHandle} className='flex items-center justify-center  gap-x-2  '>
+            
             <input type="text" value={todo} onChange={e=>setTodo(e.target.value)} placeholder='baslik giriniz' className='w-[400px] p-2 text-4 text-black outline-none rounded-md ' />
             <button disabled={!todo || !user} className='bg-gray-600 rounded-full p-2 text-white' type='submit'>ekle</button>
-        </form>
-  
+        </form> 
+    </div>
   )
 }
